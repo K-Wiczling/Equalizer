@@ -1,5 +1,5 @@
 #include  <iostream>
 int main () {
-  std::cout << "Eq";
+  std::cout << "Equalizer";
   return 0;
 }
