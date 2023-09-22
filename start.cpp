@@ -1,5 +1,5 @@
 #include  <iostream>
-//Start 
+//Start
 int main () {
   std::cout << "Equalizer";
   return 0;
