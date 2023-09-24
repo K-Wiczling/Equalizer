@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
-#include "menu.h"
+#include "headers/Menu.h"
 
 using namespace std;
 
@@ -11,7 +11,7 @@ string audioLocatin = "";
 // Begin
 int main () {
 
-  menu controls;
+  Menu controls;
   controls.cmdLine("Welcome to Crypto Equalizer");
    
   controls.showMenu();

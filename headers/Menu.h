@@ -1,8 +1,8 @@
 #include <string>
-class menu
+class Menu
 {
     public:
-        menu();
+        Menu();
         void showMenu();
         void cmdLine(std::string text);
         void cmdClear();

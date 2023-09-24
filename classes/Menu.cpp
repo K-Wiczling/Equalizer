@@ -1,4 +1,4 @@
-#include "menu.h"
+#include "../headers/Menu.h"
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -8,11 +8,11 @@ using namespace std;
 string options[5] = {"Add audio file","Play", "Encode", "Decode", "Exit"};
 bool wrongInputFlag = false;
 
-menu::menu(){
+Menu::Menu(){
 
 }
 
-void menu::showMenu(){
+void Menu::showMenu(){
     system("clear");
     int i = 1;
     for (string item : options) 
@@ -24,13 +24,13 @@ void menu::showMenu(){
     if(wrongInputFlag) 
         cmdLine("wrong input try again");
 }
-void menu::cmdLine(string text){
+void Menu::cmdLine(string text){
     cout << text << endl;
 }
-void menu::cmdClear () {
+void Menu::cmdClear () {
     system("clear");
 }
 
-void menu::changeWrongInputFlag(){
+void Menu::changeWrongInputFlag(){
     wrongInputFlag = !wrongInputFlag;
 }
