@@ -1,5 +1,6 @@
-#include  <iostream>
+#include <iostream>
 #include <string>
+#include <limits>
 #include "menu.h"
 
 using namespace std;
@@ -10,43 +11,55 @@ string audioLocatin = "";
 // Begin
 int main () {
 
-  menu mainMenu;
-  mainMenu.cmdLine("Welcome to Crypto Equalizer");
+  menu controls;
+  controls.cmdLine("Welcome to Crypto Equalizer");
    
-  mainMenu.showMenu();
+  controls.showMenu();
  
   bool end = true;
 
-  while(end) {
-    mainMenu.showMenu();
-    mainMenu.cmdLine("What you want to do?");
-    cin >> menuImput;
+  controls.showMenu();
+  controls.cmdLine("What you want to do?");
 
+  while (end)
+  {
+    controls.showMenu();
+    // cin >> menuImput;
+    while (!(cin >> menuImput)) {
+        controls.cmdLine("sd");
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        cout << "Invalid input. Please enter an integer: ";
+    }
+    end = false;
     switch (menuImput)
     {
-    case 1:
-      mainMenu.cmdLine("Give me location of the audio file"); ;
-      cin >> audioLocatin;
-      break;
+      case 1:
+        controls.cmdLine("Give me location of the audio file");
+        cin >> audioLocatin;
+        break;
 
-    case 2:
-      mainMenu.cmdLine("Playing the song");
-      break;
-    
-    case 3:
-      mainMenu.cmdLine("Give me message to encode");
-      break;
+      case 2:
+        controls.cmdLine("Playing the song");
+        break;
+      
+      case 3:
+        controls.cmdLine("Give me message to encode");
+        break;
 
-    case 4:
-      mainMenu.cmdLine("Decodeing audio");
-      break;
+      case 4:
+        controls.cmdLine("Decodeing audio");
+        break;
 
-    case 5: end = false;
-      break;
+      case 5: end = false;
+        break;
 
-    default:
-      mainMenu.changeWrongInputFlag();  
-      break;
+      default:
+        end = true;
+        controls.cmdLine("Invalid input, try again");
+        controls.changeWrongInputFlag();
+        break;
     }
   }
   return 0;

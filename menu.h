@@ -5,5 +5,7 @@ class menu
         menu();
         void showMenu();
         void cmdLine(std::string text);
+        void cmdClear();
         void changeWrongInputFlag();
+
 };

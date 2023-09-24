@@ -7,6 +7,7 @@ using namespace std;
 
 string options[5] = {"Add audio file","Play", "Encode", "Decode", "Exit"};
 bool wrongInputFlag = false;
+
 menu::menu(){
 
 }
@@ -25,6 +26,9 @@ void menu::showMenu(){
 }
 void menu::cmdLine(string text){
     cout << text << endl;
+}
+void menu::cmdClear () {
+    system("clear");
 }
 
 void menu::changeWrongInputFlag(){
