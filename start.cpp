@@ -1,5 +1,6 @@
 #include  <iostream>
+using namespace std;
 int main () {
-  std::cout << "Equalizer";
+  cout << "Equalizer!" << endl ; 
   return 0;
 }
