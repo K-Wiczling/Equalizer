@@ -1,33 +1,53 @@
 #include  <iostream>
 #include <string>
+#include "menu.h"
+
 using namespace std;
 
-string menu[3] = {"Play", "Crypt", "Exit"};
 int menuImput = 0;
 string audioLocatin = "";
+
+// Begin
 int main () {
 
-  cout << "Welcome to Crypto Equalizer"<< endl ;
-  cout << "Give me location of the audio file" << endl ;
-  cin >> audioLocatin;
-  int i = 1;
-  for (string item : menu) {
-    cout << i << ". " + item << endl;
-    ++i;
-  }
+  menu mainMenu;
+  mainMenu.cmdLine("Welcome to Crypto Equalizer");
+   
+  mainMenu.showMenu();
  
-  cin >> menuImput;
-  switch (menuImput)
-  {
-  case 1:
-    cout << "Playing the song" << endl;
-    break;
-  case 2:
-    cout << "Give me message to encrypt" << endl;
-    break;
-  
-  default:
-    break;
+  bool end = true;
+
+  while(end) {
+    mainMenu.showMenu();
+    mainMenu.cmdLine("What you want to do?");
+    cin >> menuImput;
+
+    switch (menuImput)
+    {
+    case 1:
+      mainMenu.cmdLine("Give me location of the audio file"); ;
+      cin >> audioLocatin;
+      break;
+
+    case 2:
+      mainMenu.cmdLine("Playing the song");
+      break;
+    
+    case 3:
+      mainMenu.cmdLine("Give me message to encode");
+      break;
+
+    case 4:
+      mainMenu.cmdLine("Decodeing audio");
+      break;
+
+    case 5: end = false;
+      break;
+
+    default:
+      mainMenu.changeWrongInputFlag();  
+      break;
+    }
   }
   return 0;
 }
