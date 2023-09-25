@@ -2,11 +2,11 @@
 #include <string>
 #include <limits>
 #include "headers/Menu.h"
-
+#include "headers/FileManipulation.h"
 using namespace std;
 
 int menuImput = 0;
-string audioLocatin = "";
+string audioLocation = "";
 
 // Begin
 int main () {
@@ -26,7 +26,6 @@ int main () {
     controls.showMenu();
     // cin >> menuImput;
     while (!(cin >> menuImput)) {
-        controls.cmdLine("sd");
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
@@ -36,9 +35,18 @@ int main () {
     switch (menuImput)
     {
       case 1:
+      {
+
         controls.cmdLine("Give me location of the audio file");
-        cin >> audioLocatin;
+        cin >> audioLocation;
+        FileManipulation audioFile;
+        controls.cmdClear();
+        controls.cmdLine("Content of the file:");
+        audioFile.getAudioFile();
+        controls.cmdLine("n/Content of the file in binary:");
+        audioFile.turnInToBinary();
         break;
+      }
 
       case 2:
         controls.cmdLine("Playing the song");
