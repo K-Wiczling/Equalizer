@@ -7,5 +7,6 @@ public:
     ~FileManipulation();
     void getAudioFile(std::string location);
     void saveAudioFile(std::string fileName);
+    void turnInToBinary( )//input file, and pointer to the arrey of bool
 };
 
