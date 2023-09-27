@@ -5,32 +5,34 @@
 
 using namespace std;
 
-string options[5] = {"Add audio file","Play", "Encode", "Decode", "Exit"};
 bool wrongInputFlag = false;
 
-Menu::Menu(){
-
+Menu::Menu()
+{
 }
 
-void Menu::showMenu(){
+void Menu::showMenu()
+{
     system("clear");
-    int i = 1;
+
     for (string item : options) 
     {
-        string option = to_string(i) + ". " + item;
-        cmdLine(option);
-        ++i;
-    }    
+        cmdLine(item);
+    }
+
     if(wrongInputFlag) 
         cmdLine("wrong input try again");
 }
-void Menu::cmdLine(string text){
+void Menu::cmdLine(string text)
+{
     cout << text << endl;
 }
-void Menu::cmdClear () {
+void Menu::cmdClear () 
+{
     system("clear");
 }
 
-void Menu::changeWrongInputFlag(){
+void Menu::changeWrongInputFlag()
+{   
     wrongInputFlag = !wrongInputFlag;
 }
