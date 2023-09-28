@@ -14,6 +14,7 @@ Menu::Menu()
 void Menu::showMenu(string audioFileName)
 {
     options[0] = "1. Add audio file " + audioFileName;
+    cmdLine("_____________________________________");
 
     for (string item : options) 
     {
