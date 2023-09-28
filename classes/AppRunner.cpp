@@ -48,6 +48,11 @@ bool AppRunner::run()
             decrypt();
             break;
         }
+        case 6:
+        {
+            clear();
+            break;
+        }
         case 5:
         {
             exit();
@@ -101,4 +106,8 @@ bool AppRunner::wrongInput()
     mainMenu.changeWrongInputFlag();
     run();
     return true;
+}
+void AppRunner::clear() 
+{
+    mainMenu.cmdClear();
 }

@@ -17,6 +17,7 @@ class AppRunner
         void decrypt();
         bool exit();
         bool wrongInput();
+        void clear();
     
     private:
         int menuImput = 0;

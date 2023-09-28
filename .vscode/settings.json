@@ -7,6 +7,10 @@
         "*.tcc": "cpp",
         "compare": "cpp",
         "type_traits": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "system_error": "cpp"
     }
 }
