@@ -59,7 +59,11 @@ bool AppRunner::run()
             break;
         }
     }
-    run();
+    // Run function again if user did not choose to exit
+    if (runner != exitState){
+        run();
+    }
+    return 0;
 }
 void AppRunner::getAudioFile()
 {
@@ -87,7 +91,7 @@ void AppRunner::decrypt()
 };
 bool AppRunner::exit()
 {
-    mainMenu.cmdLine("Bye");
+    runner = exitState;
     return 0;
 }
 bool AppRunner::wrongInput()

@@ -18,7 +18,7 @@ class AppRunner
         bool wrongInput();
     
     private:
-        enum appState {fileAddingState, playState, encryptState, decryptState, menuState};
+        enum appState {fileAddingState, playState, encryptState, decryptState, menuState, exitState};
         appState runner;
         Menu mainMenu;
         int menuImput = 0;
