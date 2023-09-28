@@ -7,6 +7,7 @@ using namespace std;
 AppRunner::AppRunner()
 {
     mainMenu.cmdLine("Welcome to Crypto Equalizer");
+    runner = menuState;
     run();
 }
 AppRunner::~AppRunner()
@@ -62,13 +63,14 @@ void AppRunner::run()
 }
 void AppRunner::getAudioFile()
 {
+    mainMenu.cmdClear();
     mainMenu.cmdLine("Give me location of the audio file");
     cin >> audioLocation;
     FileManipulation audioFile;
     mainMenu.cmdClear();
     mainMenu.cmdLine("Content of the file:");
     audioFile.getAudioFile();
-    mainMenu.cmdLine("n/Content of the file in binary:");
+    mainMenu.cmdLine("Content of the file in binary:");
     audioFile.turnInToBinary();
 }
 void AppRunner::play()
@@ -86,17 +88,11 @@ void AppRunner::decrypt()
 bool AppRunner::exit()
 {
     mainMenu.cmdLine("Bye");
-    return false;
+    return 0;
 }
 bool AppRunner::wrongInput()
 {
     mainMenu.changeWrongInputFlag();
-    mainMenu.showMenu();
-    while (!(cin >> menuImput))
-    {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Invalid input. Please enter an integer: ";
-    }
+    run();
     return true;
 }
