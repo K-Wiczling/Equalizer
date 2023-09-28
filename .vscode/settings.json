@@ -6,6 +6,7 @@
         "limits": "cpp",
         "*.tcc": "cpp",
         "compare": "cpp",
-        "type_traits": "cpp"
+        "type_traits": "cpp",
+        "iosfwd": "cpp"
     }
 }

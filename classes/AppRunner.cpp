@@ -1,7 +1,6 @@
 #include <iostream>
 #include <limits>
 #include "../headers/AppRunner.h"
-#include "../headers/FileManipulation.h"
 using namespace std;
 
 AppRunner::AppRunner()
@@ -17,7 +16,8 @@ AppRunner::~AppRunner()
 bool AppRunner::run()
 {
 
-    mainMenu.showMenu();
+    mainMenu.showMenu((audioFile.getFileName()));
+    runner = menuState;
     while (!(cin >> menuImput))
     {
         cin.clear();
@@ -67,13 +67,15 @@ bool AppRunner::run()
 }
 void AppRunner::getAudioFile()
 {
+    runner = fileAddingState;
     mainMenu.cmdClear();
     mainMenu.cmdLine("Give me location of the audio file");
     cin >> audioLocation;
-    FileManipulation audioFile;
+
     mainMenu.cmdClear();
     mainMenu.cmdLine("Content of the file:");
     audioFile.getAudioFile();
+
     mainMenu.cmdLine("Content of the file in binary:");
     audioFile.turnInToBinary();
 }

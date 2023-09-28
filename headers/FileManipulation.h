@@ -1,5 +1,6 @@
 #include <string>
 #include <fstream> 
+using namespace std;
 
 class FileManipulation
 {
@@ -9,7 +10,8 @@ class FileManipulation
         void getAudioFile();
         // void saveAudioFile(std::string fileName);
         void turnInToBinary();
-    
+        string getFileName();
     private:
-        std::ifstream inputFile;
+        ifstream inputFile;
+        string fileName = "";
 };

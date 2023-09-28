@@ -21,14 +21,14 @@ FileManipulation::~FileManipulation()
 {
     if (!inputFile.is_open())
     {
-        cerr << "Failed to open the file." << endl;
+        inputFile.close();
     }
 
-    inputFile.close();
 }
 
 void FileManipulation::getAudioFile()
 {
+    fileName = "example.txt";
     string line;
     while (getline(inputFile, line))
     {
@@ -60,4 +60,9 @@ void FileManipulation::turnInToBinary()
         std::cout << binaryByte << " ";
     }
     cout << dec << endl;
+}
+
+string FileManipulation::getFileName()
+{
+    return fileName;
 }

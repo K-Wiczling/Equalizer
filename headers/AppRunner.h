@@ -1,5 +1,6 @@
 #include <string>
 #include "../headers/Menu.h"
+#include "../headers/FileManipulation.h"
 using namespace std;
 
 class AppRunner
@@ -18,9 +19,13 @@ class AppRunner
         bool wrongInput();
     
     private:
-        enum appState {fileAddingState, playState, encryptState, decryptState, menuState, exitState};
-        appState runner;
-        Menu mainMenu;
         int menuImput = 0;
         string audioLocation = "";
+        
+        enum appState {fileAddingState, playState, encryptState, decryptState, menuState, exitState};
+        
+        appState runner;
+        Menu mainMenu;
+        FileManipulation audioFile;
+
 };

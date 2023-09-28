@@ -3,7 +3,7 @@ class Menu
 {
     public:
         Menu();
-        void showMenu();
+        void showMenu(std::string audioFileName);
         void cmdLine(std::string text);
         void cmdClear();
         void changeWrongInputFlag();

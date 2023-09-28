@@ -11,9 +11,10 @@ Menu::Menu()
 {
 }
 
-void Menu::showMenu()
+void Menu::showMenu(string audioFileName)
 {
     system("clear");
+    options[0] = "1. Add audio file " + audioFileName;
 
     for (string item : options) 
     {
