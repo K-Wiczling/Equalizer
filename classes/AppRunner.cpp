@@ -14,7 +14,7 @@ AppRunner::~AppRunner()
 {
 }
 
-void AppRunner::run()
+bool AppRunner::run()
 {
 
     mainMenu.showMenu();

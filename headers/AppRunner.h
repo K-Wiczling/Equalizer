@@ -8,7 +8,7 @@ class AppRunner
         AppRunner();
         ~AppRunner();
 
-        void run();
+        bool run();
         void start();
         void getAudioFile();
         void play();
