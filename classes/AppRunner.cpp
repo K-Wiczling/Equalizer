@@ -6,20 +6,19 @@ using namespace std;
 
 AppRunner::AppRunner()
 {
-    start();
+    mainMenu.cmdLine("Welcome to Crypto Equalizer");
+    run();
 }
 AppRunner::~AppRunner()
 {
 }
 
-void AppRunner::start()
+void AppRunner::run()
 {
 
-    mainMenu.cmdLine("Welcome to Crypto Equalizer");
     mainMenu.showMenu();
     while (!(cin >> menuImput))
     {
-
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Invalid input. Please enter an integer: ";
@@ -28,36 +27,38 @@ void AppRunner::start()
 
     switch (menuImput)
     {
-    case 1:
-    {
-        getAudioFile();
-        break;
-    }
-    case 2:
-    {
-        play();
-        break;
-    }
+        case 1:
+        {
+            getAudioFile();
+            break;
+        }
+        case 2:
+        {
+            play();
+            break;
+        }
+        case 3:
         {
             encrypt();
             break;
         }
-    case 4:
-    {
-        decrypt();
-        break;
+        case 4:
+        {
+            decrypt();
+            break;
+        }
+        case 5:
+        {
+            exit();
+            break;
+        }
+        default:
+        {
+            wrongInput();
+            break;
+        }
     }
-    case 5:
-    {
-        exit();
-        break;
-    }
-    default:
-    {
-        wrongInput();
-        break;
-    }
-    }
+    run();
 }
 void AppRunner::getAudioFile()
 {
