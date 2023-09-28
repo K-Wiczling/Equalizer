@@ -24,7 +24,6 @@ bool AppRunner::run()
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Invalid input. Please enter an integer: ";
     }
-    mainMenu.cmdLine("What you want to do?");
 
     switch (menuImput)
     {
@@ -48,12 +47,12 @@ bool AppRunner::run()
             decrypt();
             break;
         }
-        case 6:
+        case 5:
         {
             clear();
             break;
         }
-        case 5:
+        case 6:
         {
             exit();
             break;

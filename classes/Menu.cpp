@@ -19,7 +19,8 @@ void Menu::showMenu(string audioFileName)
     {
         cmdLine(item);
     }
-
+    cmdLine("What you want to do?");
+    
     if(wrongInputFlag) 
         cmdLine("wrong input try again");
 }
