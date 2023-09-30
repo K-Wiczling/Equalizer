@@ -24,7 +24,6 @@ bool AppRunner::run()
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Invalid input. Please enter an integer: ";
     }
-
     switch (menuImput)
     {
         case 1:
@@ -62,7 +61,9 @@ bool AppRunner::run()
             wrongInput();
             break;
         }
+        
     }
+    mainMenu.changeWrongInputFlag(false);
     // Run function again if user did not choose to exit
     if (runner != exitState){
         run();
@@ -102,7 +103,7 @@ bool AppRunner::exit()
 }
 bool AppRunner::wrongInput()
 {
-    mainMenu.changeWrongInputFlag();
+    mainMenu.changeWrongInputFlag(true);
     run();
     return true;
 }

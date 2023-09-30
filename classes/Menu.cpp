@@ -5,8 +5,6 @@
 
 using namespace std;
 
-bool wrongInputFlag = false;
-
 Menu::Menu()
 {
 }
@@ -34,7 +32,7 @@ void Menu::cmdClear ()
     system("clear");
 }
 
-void Menu::changeWrongInputFlag()
+void Menu::changeWrongInputFlag(bool stateOfInput)
 {   
-    wrongInputFlag = !wrongInputFlag;
+    wrongInputFlag = stateOfInput;
 }
