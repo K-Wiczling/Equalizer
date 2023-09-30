@@ -7,13 +7,13 @@ class FileManipulation
     public:
         FileManipulation();
         ~FileManipulation();
-        void openFile();
+        bool openFile(string address);
         // void saveAudioFile(std::string fileName);
         void turnInToBinary();
         string getFileName();
-        string retriveFileNameFromAddress(string address);
+        string retriveFileNameFromAddress(string recivedAddress);
     private:
         ifstream inputFile;
-        string fileName = "";
-        string addres = "";
+        string fileName;
+        string fileAddress;
 };

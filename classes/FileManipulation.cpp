@@ -10,12 +10,8 @@ using namespace std;
 
 FileManipulation::FileManipulation()
 {
-    inputFile.open("exe/example.txt", ios::binary);
-
-    if (!inputFile.is_open())
-    {
-        cerr << "Failed to open the file." << endl;
-    }
+    fileAddress = "";
+    fileName = "";
 }
 
 FileManipulation::~FileManipulation()
@@ -27,14 +23,27 @@ FileManipulation::~FileManipulation()
 
 }
 
-void FileManipulation::openFile()
+bool FileManipulation::openFile(string recivedAddress)
 {
-    fileName = "example.txt";
+    inputFile.open("recivedAddress", ios::binary);
+
+    if (!inputFile.is_open())
+    {
+        cerr << "Failed to open the file." << endl;
+    }
+    
+    fileAddress = recivedAddress;
+    fileName = retriveFileNameFromAddress(fileAddress);
+    
     string line;
     while (getline(inputFile, line))
     {
         cout << line << endl;
     }
+
+    inputFile.close();
+    
+    return true;
 }
 
 void FileManipulation::turnInToBinary()
