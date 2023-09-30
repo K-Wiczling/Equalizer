@@ -14,4 +14,5 @@ class FileManipulation
     private:
         ifstream inputFile;
         string fileName = "";
+        string addres = "";
 };
