@@ -34,7 +34,9 @@ bool FileManipulation::openFile(string recivedAddress)
     }
     
     fileAddress = recivedAddress;
-    fileName = retriveFileNameFromAddress(fileAddress); 
+    fileName = retriveFileNameFromAddress(fileAddress);
+    turnInToBinary();
+
     inputFile.close();
 
     return true;
@@ -42,28 +44,12 @@ bool FileManipulation::openFile(string recivedAddress)
 
 void FileManipulation::turnInToBinary()
 {
-
-    if (!inputFile.is_open())
-    {
-        cerr << "Failed to open the file." << endl;
-    }
-
-    // Create a vector to store the binary data
-    vector<unsigned char> binaryData;
-
     // Read the file byte by byte and store it as binary data
     unsigned char byte;
     while (inputFile.read(reinterpret_cast<char *>(&byte), sizeof(byte)))
     {
-        binaryData.push_back(byte);
+        binaryFileRepresentation.push_back(byte);
     }
-
-    for (unsigned char dataByte : binaryData)
-    {
-        std::bitset<8> binaryByte(dataByte);
-        std::cout << binaryByte << " ";
-    }
-    cout << dec << endl;
 }
 
 string FileManipulation::getFileName()
@@ -79,4 +65,12 @@ string FileManipulation::retriveFileNameFromAddress(string address)
     while(getline(ss, tmpSubstring, '/' ))
     {}
     return tmpSubstring;
+}
+void FileManipulation::showBinaryRepresentation() 
+{
+    for (unsigned char dataByte : binaryFileRepresentation)
+    {
+        bitset<8> binaryByte(dataByte);
+        cout << binaryByte << endl;
+    }
 }
