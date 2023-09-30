@@ -25,24 +25,18 @@ FileManipulation::~FileManipulation()
 
 bool FileManipulation::openFile(string recivedAddress)
 {
-    inputFile.open("recivedAddress", ios::binary);
+    inputFile.open(recivedAddress, ios::binary);
 
     if (!inputFile.is_open())
     {
         cerr << "Failed to open the file." << endl;
+        return false;
     }
     
     fileAddress = recivedAddress;
-    fileName = retriveFileNameFromAddress(fileAddress);
-    
-    string line;
-    while (getline(inputFile, line))
-    {
-        cout << line << endl;
-    }
-
+    fileName = retriveFileNameFromAddress(fileAddress); 
     inputFile.close();
-    
+
     return true;
 }
 
@@ -79,13 +73,10 @@ string FileManipulation::getFileName()
 
 string FileManipulation::retriveFileNameFromAddress(string address)
 {
-    vector<string> partsOfAddress;
     string tmpSubstring;
     stringstream ss(address);
 
     while(getline(ss, tmpSubstring, '/' ))
-    {
-        partsOfAddress.push_back(tmpSubstring);
-    }
+    {}
     return tmpSubstring;
 }
