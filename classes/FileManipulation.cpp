@@ -3,12 +3,13 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <sstream>
 #include <bitset>
+
 using namespace std;
 
 FileManipulation::FileManipulation()
 {
-
     inputFile.open("exe/example.txt", ios::binary);
 
     if (!inputFile.is_open())
@@ -26,7 +27,7 @@ FileManipulation::~FileManipulation()
 
 }
 
-void FileManipulation::getAudioFile()
+void FileManipulation::openFile()
 {
     fileName = "example.txt";
     string line;
@@ -65,4 +66,17 @@ void FileManipulation::turnInToBinary()
 string FileManipulation::getFileName()
 {
     return fileName;
+}
+
+string FileManipulation::retriveFileNameFromAddress(string address)
+{
+    vector<string> partsOfAddress;
+    string tmpSubstring;
+    stringstream ss(address);
+
+    while(getline(ss, tmpSubstring, '/' ))
+    {
+        partsOfAddress.push_back(tmpSubstring);
+    }
+    return tmpSubstring;
 }
