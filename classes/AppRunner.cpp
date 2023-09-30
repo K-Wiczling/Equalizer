@@ -73,7 +73,6 @@ bool AppRunner::run()
 void AppRunner::getAudioFile()
 {
     runner = fileAddingState;
-    mainMenu.cmdClear();
     mainMenu.cmdLine("Give me location of the audio file");
     cin >> audioLocation;
 }
