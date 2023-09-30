@@ -76,13 +76,6 @@ void AppRunner::getAudioFile()
     mainMenu.cmdClear();
     mainMenu.cmdLine("Give me location of the audio file");
     cin >> audioLocation;
-
-    mainMenu.cmdClear();
-    mainMenu.cmdLine("Content of the file:");
-    audioFile.getAudioFile();
-
-    mainMenu.cmdLine("Content of the file in binary:");
-    audioFile.turnInToBinary();
 }
 void AppRunner::play()
 {
