@@ -8,6 +8,10 @@ AppRunner::AppRunner()
 {
     mainMenu.cmdLine("Welcome to Crypto Equalizer");
     runner = menuState;
+
+    // add ass a test to not add manuly file every time
+    audioFile.openFile("exe/abc.txt");
+    
     run();
 }
 AppRunner::~AppRunner()
