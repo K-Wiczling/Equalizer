@@ -18,12 +18,16 @@ bool AppRunner::run()
 
     mainMenu.showMenu((audioFile.getFileName()));
     runner = menuState;
+    
+    // checks if input is a number to prevent crash
     while (!(cin >> menuImput))
     {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Invalid input. Please enter an integer: ";
     }
+
+    // Logic for menu 
     switch (menuImput)
     {
         case 1:
@@ -72,10 +76,15 @@ bool AppRunner::run()
 }
 void AppRunner::getAudioFile()
 {
+    // change state of program
     runner = fileAddingState;
+
+    // Get address of the file and try to open the file 
     mainMenu.cmdLine("Give me location of the audio file");
     cin >> audioLocation;
     audioFile.openFile(audioLocation);
+
+    // to be removed later
     audioFile.showBinaryRepresentation();
 }
 void AppRunner::play()
@@ -97,6 +106,7 @@ bool AppRunner::exit()
 }
 bool AppRunner::wrongInput()
 {
+    // change flag and display manu again
     mainMenu.changeWrongInputFlag(true);
     run();
     return true;

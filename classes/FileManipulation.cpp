@@ -25,6 +25,7 @@ FileManipulation::~FileManipulation()
 
 bool FileManipulation::openFile(string recivedAddress)
 {
+    // Opening file
     inputFile.open(recivedAddress, ios::binary);
 
     if (!inputFile.is_open())
@@ -33,8 +34,10 @@ bool FileManipulation::openFile(string recivedAddress)
         return false;
     }
     
+    // save name & address in privet members
     fileAddress = recivedAddress;
     fileName = retriveFileNameFromAddress(fileAddress);
+    
     turnInToBinary();
 
     inputFile.close();
@@ -45,6 +48,7 @@ bool FileManipulation::openFile(string recivedAddress)
 void FileManipulation::turnInToBinary()
 {
     // Read the file byte by byte and store it as binary data
+    // in vector object
     unsigned char byte;
     while (inputFile.read(reinterpret_cast<char *>(&byte), sizeof(byte)))
     {
@@ -62,10 +66,13 @@ string FileManipulation::retriveFileNameFromAddress(string address)
     string tmpSubstring;
     stringstream ss(address);
 
+    // cutting string on slashes to return last part - file name
     while(getline(ss, tmpSubstring, '/' ))
     {}
     return tmpSubstring;
 }
+
+// To bo remmoved later
 void FileManipulation::showBinaryRepresentation() 
 {
     for (unsigned char dataByte : binaryFileRepresentation)
