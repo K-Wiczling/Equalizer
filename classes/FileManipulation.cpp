@@ -81,3 +81,8 @@ void FileManipulation::showBinaryRepresentation()
         cout << binaryByte << endl;
     }
 }
+
+vector<unsigned char>* FileManipulation::getbinaryFileRepresentation() 
+{
+    return &binaryFileRepresentation;
+}

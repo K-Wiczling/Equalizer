@@ -1,6 +1,7 @@
 #include <iostream>
 #include <limits>
 #include "../headers/AppRunner.h"
+#include "../headers/Encoder.h"
 using namespace std;
 
 AppRunner::AppRunner()
@@ -93,7 +94,9 @@ void AppRunner::play()
 }
 void AppRunner::encrypt()
 {
-    mainMenu.cmdLine("Give me message to encrypt");
+    Encoder encd;
+    encd.encodeMessage(audioFile.getbinaryFileRepresentation(), "mystical land of coding");
+
 };
 void AppRunner::decrypt()
 {
