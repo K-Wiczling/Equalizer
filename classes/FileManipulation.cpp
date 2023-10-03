@@ -1,4 +1,5 @@
 #include "../headers/FileManipulation.h"
+#include "../headers/BinaryOperator.h"
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -45,16 +46,7 @@ bool FileManipulation::openFile(string recivedAddress)
     return true;
 }
 
-void FileManipulation::turnInToBinary()
-{
-    // Read the file byte by byte and store it as binary data
-    // in vector object
-    unsigned char byte;
-    while (inputFile.read(reinterpret_cast<char *>(&byte), sizeof(byte)))
-    {
-        binaryFileRepresentation.push_back(byte);
-    }
-}
+
 
 string FileManipulation::getFileName()
 {
@@ -72,8 +64,9 @@ string FileManipulation::retriveFileNameFromAddress(string address)
     return tmpSubstring;
 }
 
-void FileManipulation::saveAudioFile(string name)
+void FileManipulation::saveAudioFile(string name, BinaryOperator binaryRepresentation)
 {
+
 
     // Open an .mp3 file for writing
     ofstream mp3File(name, ios::binary);
@@ -84,7 +77,7 @@ void FileManipulation::saveAudioFile(string name)
 
     // Write the minimal MP3 header
     mp3File << "ID3"; // ID3v2 header
-    mp3File.write(reinterpret_cast<const char*>(&binaryFileRepresentation[0]), binaryFileRepresentation.size());
+    mp3File.write(reinterpret_cast<const char*>(binaryRepresentation.getbinaryFileRepresentation()[0]), sizeof(binaryRepresentation.getbinaryFileRepresentation()));
 
     // Close the file
     mp3File.close();
@@ -101,7 +94,3 @@ void FileManipulation::showBinaryRepresentation()
     }
 }
 
-vector<unsigned char>* FileManipulation::getbinaryFileRepresentation() 
-{
-    return &binaryFileRepresentation;
-}
