@@ -72,6 +72,25 @@ string FileManipulation::retriveFileNameFromAddress(string address)
     return tmpSubstring;
 }
 
+void FileManipulation::saveAudioFile(string name)
+{
+
+    // Open an .mp3 file for writing
+    std::ofstream mp3File(name, std::ios::binary);
+
+    if (!mp3File.is_open()) {
+        std::cerr << "Failed to open the .mp3 file for writing." << std::endl;
+    }
+
+    // Write the minimal MP3 header
+    mp3File << "ID3"; // ID3v2 header
+    mp3File.write(reinterpret_cast<const char*>(&binaryFileRepresentation[0]), binaryFileRepresentation.size());
+
+    // Close the file
+    mp3File.close();
+
+    std::cout << "Binary data saved as output.mp3." << std::endl;
+}
 // To bo remmoved later
 void FileManipulation::showBinaryRepresentation() 
 {

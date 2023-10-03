@@ -15,7 +15,7 @@ class Encoder
 
         int lengthOfMessage(string message);
         int lengthOfAudio();
-        bool changeMessageInTobits();
+        bool changeMessageInToBinary();
 
     private:
         string messageToEncode;

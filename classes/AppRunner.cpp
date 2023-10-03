@@ -10,7 +10,7 @@ AppRunner::AppRunner()
     runner = menuState;
 
     // add ass a test to not add manuly file every time
-    audioFile.openFile("exe/abc.txt");
+    audioFile.openFile("exe/sun.mp3");
     
     run();
 }
@@ -100,6 +100,7 @@ void AppRunner::encrypt()
 {
     Encoder encd;
     encd.encodeMessage(audioFile.getbinaryFileRepresentation(), "mystical land of coding");
+    audioFile.saveAudioFile("sun2.mp3");
 
 };
 void AppRunner::decrypt()
