@@ -1,10 +1,18 @@
+#include <vector>
+#include <fstream>
+using namespace std;
+
 class BinaryOperator
 {
     private:
-        /* data */
+        vector<unsigned char> binaryFileRepresentation;
+
     public:
         BinaryOperator(/* args */);
-        ~BinaryOperator();
+        void turnInToBinary(fstream inputFile);
+        
+        // getter for binary file represtentation
+        vector<unsigned char>* getbinaryFileRepresentation();
 };
 
 

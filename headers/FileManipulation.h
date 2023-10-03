@@ -1,6 +1,7 @@
 #include <string>
 #include <fstream> 
 #include <vector>
+
 using namespace std;
 
 class FileManipulation
@@ -27,13 +28,11 @@ class FileManipulation
         // hellping function to bee removed in the production 
         void showBinaryRepresentation();
 
-        // getter for binary file represtentation
-        vector<unsigned char>* getbinaryFileRepresentation();
+        
 
     private:
     
         ifstream inputFile;
         string fileName;
         string fileAddress;
-        vector<unsigned char> binaryFileRepresentation;
 };
