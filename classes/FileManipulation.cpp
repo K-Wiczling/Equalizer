@@ -76,10 +76,10 @@ void FileManipulation::saveAudioFile(string name)
 {
 
     // Open an .mp3 file for writing
-    std::ofstream mp3File(name, std::ios::binary);
+    ofstream mp3File(name, ios::binary);
 
     if (!mp3File.is_open()) {
-        std::cerr << "Failed to open the .mp3 file for writing." << std::endl;
+        cerr << "Failed to open the .mp3 file for writing." << endl;
     }
 
     // Write the minimal MP3 header
@@ -89,7 +89,7 @@ void FileManipulation::saveAudioFile(string name)
     // Close the file
     mp3File.close();
 
-    std::cout << "Binary data saved as output.mp3." << std::endl;
+    cout << "Binary data saved as output.mp3." << endl;
 }
 // To bo remmoved later
 void FileManipulation::showBinaryRepresentation() 
